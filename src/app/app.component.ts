@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bmw-angular';
+  componentTilte="Mukesh"
+  clickhandler(){
+    alert("I m cliked")
+  }
 }
