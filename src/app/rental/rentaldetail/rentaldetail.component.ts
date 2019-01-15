@@ -6,7 +6,7 @@ import {Rental} from'../shared/rental.modal'
 @Component({
   selector: 'bwm-rentaldetail',
   templateUrl: './rentaldetail.component.html',
-  styleUrls: ['./rentaldetail.component.css']
+  styleUrls: ['./rentaldetail.component.scss']
 })
 export class RentaldetailComponent implements OnInit {
 
