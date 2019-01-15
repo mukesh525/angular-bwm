@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "bwm",
       "schematics": {},
       "architect": {
         "build": {
@@ -137,5 +137,12 @@
       }
     }
   },
-  "defaultProject": "bmw-angular"
+  "defaultProject": "bmw-angular",
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "spec": false
+      }
+    }
+  }
 }
