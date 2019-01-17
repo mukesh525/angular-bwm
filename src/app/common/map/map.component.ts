@@ -16,12 +16,9 @@ export class MapComponent implements OnInit {
 
   constructor(private mapService:MapService ,private ref:ChangeDetectorRef ) { }
 
-  ngOnInit() {
-  
-  }
+  ngOnInit() { }
 
   mapReadyHandler() {
-    
      this.mapService.geocodeLocation(this.location).subscribe(
       (coordinates)=>{
          this.lat=coordinates.lat;
