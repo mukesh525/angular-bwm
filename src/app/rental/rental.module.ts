@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgPipesModule} from 'ngx-pipes';
 import {UpperCasePipe}  from '../common/pipes/uppercase.pipes';
 import {MapModule}  from '../common/map/map.module';
+import {AuthGuard} from '../auth/shared/auth.guard';
+import { Daterangepicker } from 'ng2-daterangepicker';
 
 
 
@@ -12,7 +14,9 @@ import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalListItemComponent } from './rental-list-item/rental-list-item.component';
 import { RentalComponent } from './rental.component';
 import {RentalService} from './shared/rental.service';
-import { RentaldetailComponent } from './rentaldetail/rentaldetail.component';
+import { RentaldetailComponent } from './rental-detail/rentaldetail.component';
+import { RentalDetailBookingComponent } from './rental-detail/rental-detail-booking/rental-detail-booking.component';
+
 
 const routes:Routes =[
     { 
@@ -20,7 +24,7 @@ const routes:Routes =[
       component:RentalComponent,
       children:[
        {path:'',component:RentalListComponent},
-       {path:':rentalID',component:RentaldetailComponent}
+       {path:':rentalID',component:RentaldetailComponent,canActivate:[AuthGuard]}
       ]
     }
   ]
@@ -30,10 +34,12 @@ const routes:Routes =[
         RentalListItemComponent,
         RentalComponent,
         RentaldetailComponent,
-        UpperCasePipe
+        UpperCasePipe,
+        RentalDetailBookingComponent
     ],
     imports:[
         CommonModule,
+        Daterangepicker,
         HttpClientModule,
         NgPipesModule,
         MapModule,

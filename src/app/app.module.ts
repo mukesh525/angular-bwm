@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import {RentalModule} from './rental/rental.module';
+import {AuthModule} from './auth/auth.module';
+import { RentalDetailBookingComponent } from './rental/rental-detail/rental-detail-booking/rental-detail-booking.component';
+
 const routes:Routes =[
   {path:'',redirectTo:'/rentals',pathMatch:'full'}
   // {path:'temp',component:TempComponent}
@@ -16,16 +19,15 @@ const routes:Routes =[
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    
-  
+    HeaderComponent
    
   ],
   imports: [
     RouterModule.forRoot(routes), 
     BrowserModule,
     AppRoutingModule,
-    RentalModule
+    RentalModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
