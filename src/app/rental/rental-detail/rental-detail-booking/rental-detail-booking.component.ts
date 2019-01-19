@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 import { DaterangePickerComponent } from 'ng2-daterangepicker';
 import { BookingService } from 'src/app/booking/shared/booking.service';
 
+import { AuthService } from '../../../auth/shared/auth.service';
+
 @Component({
 
   encapsulation: ViewEncapsulation.None,
@@ -36,11 +38,13 @@ export class RentalDetailBookingComponent implements OnInit {
     opens: 'left',
     autoUpdateInput: false,
     isInvalidDate: this.checkForInvalidDates.bind(this)
-};
-  constructor(private helper:HelperService,
-              private modalService:NgbModal,
-              private toastr: ToastrService,
-              private bookingService:BookingService) {    }
+};  
+constructor(private helper: HelperService,
+  private modalService: NgbModal,
+  private bookingService: BookingService,
+  private toastr: ToastrService,
+  public auth: AuthService) {
+}
 
   ngOnInit() {
     this.newBooking =  new Booking();
@@ -49,6 +53,7 @@ export class RentalDetailBookingComponent implements OnInit {
 
 
   private checkForInvalidDates(date){
+    
     return this.bookedOutDates.includes(this.helper.formatBookingDate(date)) ||date.diff(moment(),'days') < 0
   }
 

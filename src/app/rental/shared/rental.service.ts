@@ -15,5 +15,29 @@ public getRentals(): Observable<Rental[]>{
   return <Observable<Rental[]>> this.http.get('/api/v1/rentals/');
 }
 
+public getRentalsByCity(city: string): Observable<any> {
+  return this.http.get(`/api/v1/rentals?city=${city}`);
+}
+
+public createRental(rental: Rental): Observable<any> {
+  return this.http.post('/api/v1/rentals', rental);
+}
+
+public getUserRentals(): Observable<any> {
+  return this.http.get('/api/v1/rentals/manage');
+}
+
+public deleteRental(rentalId: string): Observable<any> {
+  return this.http.delete(`/api/v1/rentals/${rentalId}`);
+}
+
+public updateDental(rentalId: string, rentalData: any): Observable<any> {
+  return this.http.patch(`/api/v1/rentals/${rentalId}`, rentalData);
+}
+
+public verifyRentalUser(rentalId: string): Observable<any> {
+  return this.http.get(`/api/v1/rentals/${rentalId}/verify-user`);
+}
+
 
 }
