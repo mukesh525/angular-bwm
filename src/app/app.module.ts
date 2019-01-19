@@ -6,9 +6,14 @@ import { ToastrModule } from 'ngx-toastr'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
+
 import {RentalModule} from './rental/rental.module';
 import {AuthModule} from './auth/auth.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ManageModule } from './manage/manage.module';
    
 
 const routes:Routes =[
@@ -22,7 +27,7 @@ const routes:Routes =[
   declarations: [
     AppComponent,
     HeaderComponent
-   
+      
   ],
   imports: [
     RouterModule.forRoot(routes), 
@@ -31,7 +36,9 @@ const routes:Routes =[
     RentalModule,
     AuthModule,
     ToastrModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    ManageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
