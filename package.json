@@ -1,10 +1,16 @@
 {
   "name": "bmw-angular",
   "version": "0.0.0",
+  "engines": {
+    "node": "11.6.0",
+    "npm": "6.5.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json ",
-    "build": "ng build",
+    "start": "npm run start --prefix server",
+    "start-dev": "ng serve",
+    "build": "ng build --prod",
+    "heroku-postbuild": "npm run build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
